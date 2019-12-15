@@ -1,0 +1,36 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background: #FFF;
+}
+#title{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: #ff5c5c;
+}
+p{
+    color: #ff5c5c;
+}
+form input{
+    padding: 5px;
+    margin: 2px;
+    height: 25px;
+    width: 300px;
+    border: 2px solid #ff1d1d;
+    border-radius: 25px;
+    
+}
+.btn{
+    margin-top: 1rem;
+    padding: 1%;
+    border: 0px;
+    border-radius: 20px;
+    background: #f8921a;
+}
+.navbtn{
+    /* width: 1rem; */
+    text-decoration: none;
+    color: black;
+}
