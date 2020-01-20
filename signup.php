@@ -26,7 +26,6 @@
             $email = $_POST['email'];
             $password = $_POST['pwd'];
 
-            // require "checker.php";
             //Checking account already exist or not            
             $username_check_query = "SELECT * FROM loginsys WHERE username = '$username' OR email = '$email'";
             $checker = mysqli_query($conn, $username_check_query);
@@ -44,15 +43,14 @@
                 if(mysqli_query($conn, $query))
                 {
                     echo "<p>Succesfully New User Created</p>";
-                    // header("Location: about.php");
-                    // exit();                  
+                    header("Location: login.php");
+                    exit();                  
                 }
                 else
                 {
                     echo "<p>Due to some reason we unable to create your account please try again</p>";
                 }
 
-                //header("Location: /storage/ssd1/594/11939594/public_html/user/header.php");
             }
 
         }
