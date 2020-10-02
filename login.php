@@ -20,22 +20,33 @@
         if(isset($_POST['submit']))
         {
             $username = $_POST['username'];
-            $password = $_POST['pwd'];
+            $password = $_POST['pwd'];            
 
             // require "checker.php";
-            $username_check_query = "SELECT * FROM loginsys WHERE username = '$username' AND pwd = '$password'";
+            $username_check_query = "SELECT * FROM loginsys WHERE username = '$username'";
             $checker = mysqli_query($conn, $username_check_query);
             $checker_val = mysqli_num_rows($checker);
         
             if($checker_val>0)
             {
-                echo "<p><br>You are logged In<p>";
-                // header("Location: about.php");
+                
+                $storePass = "SELECT pwd FROM loginsys WHERE username = '$username'";
+                $runStorePass = mysqli_query($conn, $storePass);
+                $myPass = mysqli_fetch_array($runStorePass);
+                
+                if(password_verify($password, $myPass)) {
+                    echo "<p><br>You are logged In<p>";
+                    // header("Location: about.php");
+                } else {
+                    echo "<p>Please enter the valid password</p>";
+                }
+                
                 // die();
             }
             else
             {
-                echo "<p><br>Account Doesn't exists to login please create an accout<p>";
+//                 echo "<p><br>Account Doesn't exists to login please create an accout<p>";
+                    echo "<p>Please enter the valid username</p>";
             }
         }
 
