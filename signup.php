@@ -37,8 +37,9 @@
             }
             else
             {
+                $passHash = password_hash($password, PASSWORD_BCRYPT);
                 $query = "INSERT INTO loginsys(username, pwd, fname, lname, phoneno, email)
-                            VALUES('$username', '$password', '$fname', '$lname', '$mobileno','$email');";
+                            VALUES('$username', '$passHash', '$fname', '$lname', '$mobileno','$email');";
 
                 if(mysqli_query($conn, $query))
                 {
